@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Set-Up{% endblock%}
+
+    {% block content %} 
+
+        <h1 align = 'center'>Overview</h1>
+            <p align = 'center'>
+                Welcome! I've designed an app that allows you to 
+                track your expenses. I've set up features that display 
+                your expenditures. Sign in or create
+                an account to access these features.
+            </p>
+            <br />
+
+            </p>
+            <image src ='{{url_for("static", filename = "images/homepage.jpeg")}}'></image>
+
+
+    {% endblock %}
