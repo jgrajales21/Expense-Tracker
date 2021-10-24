@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign-Up{% endblock %}
+
+{% block content %}
+<h1 align = 'center'>Welcome to the Sign-Up Page!</h1>
+<br />
+<h3 align = 'center' style = 'color:goldenrod'>Track Your Expenses.</h3>
+<br />
+<h3 align = 'center' style = 'color:goldenrod'>Budget Your Money.</h3>
+<br />
+<h3 align = 'center' style = 'color:goldenrod'>Set Savings Goals.</h3>
+<br />
+<h3 align = 'center' style = 'color:goldenrod'>Welcome to OinkSaver.online</h3>
+<br />
+
+<form method = 'POST'>
+    
+    <div class = 'form-group'>
+        <label for = 'email'>Email Address</label>
+        <input
+        type ='email'
+        class = 'form-control'
+        id = 'email'
+        name = 'email'
+        placeholder="Enter Email"
+        />
+    </div>
+
+    <div class = 'form-group'>
+        <label for = 'firstName'>First Name</label>
+        <input
+        type = 'text'
+        class = "form-control"
+        id = 'firstName'
+        name = "firstName"
+        placeholder = "Enter First Name"
+        />
+    </div>
+
+    <div class = 'form-group'>
+        <label for = 'password'>Password</label>
+        <input 
+        type = 'password'
+        class ='form-control'
+        id = 'password1'
+        name = 'password1'
+        placeholder = "Enter Password"
+        />
+    </div>
+
+    <div class = 'form-group'>
+        <label for = 'password'>Confirm Password</label>        
+        <input
+        type = 'password'
+        class = 'form-control'
+        id = 'password2'
+        name = 'password2'
+        placeholder = "Re-enter Password"
+        />
+    </div>
+
+    <br />
+    <button type = 'submit' class = 'btn btn-primary'>Submit</button>
+
+</form>
+
+{% endblock %}
+
+
