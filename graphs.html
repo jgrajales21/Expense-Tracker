@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block title %}Set-Up{% endblock%}
+
+    {% block content %} 
+    <br />
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Graphs</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>                
+                
+    <body>
+        <main>
+            <canvas id="myChart"></canvas>
+            <div>
+                <label for='votes'>Votes</label>
+                <input name = 'voters' id = 'votes' type = 'number'>
+                <label for = 'category'>Category</label>
+                <input name = 'category' id = 'category' type = 'text'>
+
+                <label for = 'vote'>My Vote:</label>
+                <input name = 'vote' id = 'vote' type = 'text'>
+
+            </div>
+            <button onclick="addData(myChart)">Add Data</button>
+            <button onclick='removeData(myChart)'>Remove Data</button>
+            <button onclick = 'myVote(myChart)'>My vote</button>
+        </main>
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: function(context) {
+                            var index = context.dataIndex;
+                            var value = context.dataset.data[index];
+                            return value < 0 ? 'red' :  // draw negative values in red
+                                'green';
+                        },
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    plugins: {
+                        title: {
+                        display: true,
+                        text: 'Expenses',
+                        }
+                    } 
+                }
+            });
+            function addData(chart) {
+            chart.data.labels.push(document.getElementById('category').value);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(document.getElementById('votes').value*1);
+            });
+            chart.update();
+         }
+
+         function removeData(chart) {
+            chart.data.labels.pop();
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.pop();
+            });
+            myChart.update();
+         }
+
+         function myVote(chart) {
+            let voteIndex = chart.data.labels.indexOf(document.getElementById('vote').value);
+            chart.data.datasets[0].data[voteIndex] +=1;
+            chart.update(); 
+        }
+        </script>   
+    </body>
+
+    {% endblock %}
