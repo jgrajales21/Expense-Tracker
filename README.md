@@ -3,11 +3,12 @@ Completed free lance reqeuest of an expense tracker. The flask web app allows us
 
 Tools: 
 
-Flask 
-Charts JS
-SQL Alchemy 
-Python
-HTML
-Javascript
-CSS
+Flask, 
+Charts JS,
+SQL Alchemy, 
+Python,
+HTML,
+Javascript,
+CSS,
+Bootstrap
 
